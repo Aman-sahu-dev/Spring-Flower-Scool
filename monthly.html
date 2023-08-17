@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Chart</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js"></script>
+</head>
+<body>
+    <div class="nav">
+        <div class="menu">
+            <img id="logo" src="scl-logo.png" alt="school logo">
+            <a href="welcome.html">Home</a>
+            <a href="monthly.html">Monthly Chart</a>
+            <a href="Student.html">Student Details</a>
+            <a href="timetable.html">Time Table</a>
+            <a href="index.html">Logout</a>
+        </div>
+    </div>
+    <h1 style="text-align: center;">MONTHLY ACTIVITIES</h1>
+    <div class="monthlybox">
+        <div class="monthlyform">
+            <h1 class="heading">Add Activity</h1>
+            <label for="taskid">Id</label>
+            <input type="text" id="taskid" placeholder="Enter task id">
+            <label for="tasksubject">Subject</label>
+            <input type="text" id="tasksubject" placeholder="Enter subject">
+            <label for="taskactivity">Activity</label>
+            <input type="text" id="taskactivity" placeholder="Enter activity description">
+            <button onclick="addtask()">Add Activity</button>
+        </div>
+        <div id="monthly">
+            
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            monthlycall();
+        });
+    </script>
+</body>
+</html>
