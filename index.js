@@ -9,9 +9,11 @@ let stuemail = document.getElementById('stuemail');
 let taskid = document.getElementById('taskid');
 let tasksubject = document.getElementById('tasksubject');
 let taskactivity = document.getElementById('taskactivity');
+var extradiv = document.getElementById('extra');
 
 let credentials = [];
 let monthlyactivities = [];
+let extraactivities = [];
 
 credentials.push({ name: 'admin', password: '12345678', email: 'admin@gmail.com' });
 monthlyactivities.push({
@@ -24,6 +26,7 @@ monthlyactivities.push({
     subject: "Physics"
 });
 
+
 nameinput.addEventListener('click', () => {
     nameinput.value = '';
     pass.value = '';
@@ -33,6 +36,7 @@ nameinput.addEventListener('click', () => {
 signname.addEventListener('click', () => {
     passtext.innerText = '';
 })
+
 function login() {
     return new Promise((resolve, reject) => {
         let username = nameinput.value;
@@ -68,10 +72,24 @@ function loginbtn() {
             nameinput.value = `*Invalid username or password*`;
         })
 }
-
+function ValidateEmail(mail) 
+{
+ if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
+  {
+    return (true)
+  }
+    alert("You have entered an invalid email address!")
+    return (false)
+}
 function signup() {
     if (signpass.value.length < 8) {
         passtext.innerText = "*password should be atleast 8 characters";
+        signname.value = '';
+        signpass.value = '';
+        email.value = '';
+    }
+    else if(!ValidateEmail(email.value)){
+        passtext.innerText = "*please enter valid email address*";
         signname.value = '';
         signpass.value = '';
         email.value = '';
@@ -86,6 +104,7 @@ function signup() {
         credentials.push(userdata);
         signname.value = '';
         signpass.value = '';
+        email.value = '';
         console.log('signup scuccessful', userdata);
     }
 }
@@ -128,9 +147,37 @@ function addtask() {
         subject: tasksubject.value
     }
     monthlyactivities.push(obj);
-    while(monthlydiv.hasChildNodes()){
+    while (monthlydiv.hasChildNodes()) {
         monthlydiv.firstChild.remove();
     }
     monthlycall();
+    console.log("Task added");
+}
+// extra activity page
+function extra(element) {
+    let extradiv = document.getElementById('extra');
+    const card = document.createElement('div');
+    card.setAttribute('class', 'activities');
+    let clutter = `<div class="actbox">
+      <h2 class="boxid">Task : ${element.id}</h2>
+      <h3 class="subject">Subject: ${element.subject}</h3>
+      <p class="activity">${element.activity}.</p>
+    </div>`
+    extradiv.appendChild(card).innerHTML = clutter;
+}
+
+function extraactivity() {
+    let extaskid = document.getElementById('extaskid');
+    let extasksubject = document.getElementById('extasksubject');
+    let extaskactivity = document.getElementById('extaskactivity');
+    let obj = {
+        id: extaskid.value,
+        activity: extaskactivity.value,
+        subject: extasksubject.value
+    }
+    const storedExtraActivities = localStorage.getItem('extraactivities');
+    const extraactivities = storedExtraActivities ? JSON.parse(storedExtraActivities) : [];
+    extraactivities.push(obj);
+    sessionStorage.setItem('extraactivities', JSON.stringify(extraactivities));
     console.log("Task added");
 }

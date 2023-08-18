@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extra Activity</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="nav">
+        <div class="menu">
+            <img id="logo" src="scl-logo.png" alt="school logo">
+            <a href="welcome.html">Home</a>
+            <a href="extra.html">Extra Activity</a>
+            <a href="monthly.html">Monthly Chart</a>
+            <a href="Student.html">Student Details</a>
+            <a href="timetable.html" id="studentpage">Time Table</a>
+            <a href="index.html">Logout</a>
+        </div>
+    </div>
+    <h1 style="text-align: center;">Extra ACTIVITIES</h1>
+    <div class="extrabox">
+        <div class="monthlyform">
+            <h1 class="heading">Add Activity</h1>
+            <label for="extaskid">Id</label>
+            <input type="text" id="extaskid" placeholder="Enter task id">
+            <label for="extasksubject">Subject</label>
+            <input type="text" id="extasksubject" placeholder="Enter subject">
+            <label for="extaskactivity">Activity</label>
+            <input type="text" id="extaskactivity" placeholder="Enter activity description">
+            <button onclick="extraactivity()">Add Activity</button>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

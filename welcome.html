@@ -1,27 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spring Flower</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="nav">
         <div class="menu">
             <img id="logo" src="scl-logo.png" alt="school logo">
             <a href="welcome.html">Home</a>
+            <a href="extra.html">Extra Activity</a>
             <a href="monthly.html">Monthly Chart</a>
             <a href="Student.html">Student Details</a>
             <a href="timetable.html" id="studentpage">Time Table</a>
             <a href="index.html">Logout</a>
         </div>
     </div>
+    <h1 id="dailyheading" style="text-align: center;">Daily Activities</h1>
     <div class="welcome">
+        <div id="extra">
+
+        </div>
         <img src="scl-logo.png" alt="school logo" id="welcomelogo">
         <h1>~~~ Welcome ~~~</h1>
         <h2>Spring Flower School</h2>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const extradiv = document.getElementById('extra');
+            const storedExtraActivities = sessionStorage.getItem('extraactivities');
+
+            if (storedExtraActivities) {
+                const extraactivities = JSON.parse(storedExtraActivities);
+                extraactivities.forEach(element => {
+                    extra(element);
+                });
+            }
+        });
+
+    </script>
     <script src="index.js"></script>
 </body>
+
 </html>
