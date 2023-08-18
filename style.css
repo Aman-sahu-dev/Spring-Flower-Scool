@@ -288,12 +288,15 @@ button:hover , input:hover{
     .welcome h1{
         font-size: 2rem;
     }
-    .main{
-        margin: 5px 5px 20px 5px;
-        width: fit-content;
-    }
+    
     .mainouter{
         height: 70vh;
+        align-items: center;
+        justify-content: center;
+    }
+    .main{
+        margin: 5px 5px 20px 5px;
+        height: 90%;
     }
     .stud-info{
         padding-left: 20px;
