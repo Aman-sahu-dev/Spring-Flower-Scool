@@ -125,9 +125,18 @@ function monthlycall() {
         monthly(element);
     })
 }
+function generateRandomColor(){
+    let maxVal = 0xFFFFFF;
+    let randomNumber = Math.random() * maxVal; 
+    randomNumber = Math.floor(randomNumber);
+    randomNumber = randomNumber.toString(16);
+    let randColor = randomNumber.padStart(6, 0);
+    return `#${randColor.toUpperCase()}`
+}
 function monthly(element) {
     let monthlydiv = document.getElementById('monthly');
     const card = document.createElement('div');
+    card.style.backgroundColor = generateRandomColor();
     card.setAttribute('class', 'activities');
     let clutter = `<div class="actbox">
       <h2 class="boxid">Task : ${element.id}</h2>
