@@ -166,6 +166,7 @@ function addtask() {
 function extra(element) {
     let extradiv = document.getElementById('extra');
     const card = document.createElement('div');
+    card.style.backgroundColor = generateRandomColor();
     card.setAttribute('class', 'activities');
     let clutter = `<div class="actbox">
       <h2 class="boxid">Task : ${element.id}</h2>

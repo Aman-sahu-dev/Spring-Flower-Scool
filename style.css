@@ -99,7 +99,15 @@ p{
     padding: 10px;
     justify-content: space-between;
 }
-
+.headingh1 i{
+    position: absolute;
+    right: 45px;
+    top: 100px;
+    border-radius : 50% ;
+    padding: 3px;
+    border: 1px solid black;
+    font-size: 1rem;
+}
 
 /* Time table CSS */
 table,th,td{
@@ -343,8 +351,8 @@ button:hover , input:hover{
     }
     .headingh1 i{
         position: absolute;
-        right: 25px;
-        top: 70px;
+        right: 20px;
+        top: 75px;
         border-radius : 50% ;
         padding: 3px;
         border: 1px solid black;
