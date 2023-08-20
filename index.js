@@ -28,10 +28,12 @@ monthlyactivities.push({
 
 
 nameinput.addEventListener('click', () => {
-    nameinput.value = '';
-    pass.value = '';
-    nameinput.style.color = "black";
-    nameinput.style.fontSize = "1rem";
+    if (nameinput.style.color == 'red') {
+        nameinput.value = '';
+        pass.value = '';
+        nameinput.style.color = "black";
+        nameinput.style.fontSize = "1rem";
+    }
 })
 signname.addEventListener('click', () => {
     passtext.innerText = '';
@@ -72,12 +74,10 @@ function loginbtn() {
             nameinput.value = `*Invalid username or password*`;
         })
 }
-function ValidateEmail(mail) 
-{
- if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
-  {
-    return (true)
-  }
+function ValidateEmail(mail) {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
+        return (true)
+    }
     alert("You have entered an invalid email address!")
     return (false)
 }
@@ -88,7 +88,7 @@ function signup() {
         signpass.value = '';
         email.value = '';
     }
-    else if(!ValidateEmail(email.value)){
+    else if (!ValidateEmail(email.value)) {
         passtext.innerText = "*please enter valid email address*";
         signname.value = '';
         signpass.value = '';
@@ -161,6 +161,7 @@ function extra(element) {
     let clutter = `<div class="actbox">
       <h2 class="boxid">Task : ${element.id}</h2>
       <h3 class="subject">Subject: ${element.subject}</h3>
+      <p>Date: ${element.date} </p>
       <p class="activity">${element.activity}.</p>
     </div>`
     extradiv.appendChild(card).innerHTML = clutter;
@@ -170,8 +171,14 @@ function extraactivity() {
     let extaskid = document.getElementById('extaskid');
     let extasksubject = document.getElementById('extasksubject');
     let extaskactivity = document.getElementById('extaskactivity');
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+    const day = String(currentDate.getDate()).padStart(2, '0');
+    const formattedDate = `${day}/${month}/${year}`;
     let obj = {
         id: extaskid.value,
+        date: formattedDate,
         activity: extaskactivity.value,
         subject: extasksubject.value
     }
@@ -180,4 +187,10 @@ function extraactivity() {
     extraactivities.push(obj);
     sessionStorage.setItem('extraactivities', JSON.stringify(extraactivities));
     console.log("Task added");
+}
+
+async function fetchdata() {
+    const response = await fetch("data.json");
+    var data = await response.json();
+    return data;
 }

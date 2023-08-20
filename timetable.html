@@ -19,7 +19,7 @@
             <a href="index.html">Logout</a>
         </div>
     </div>
-    <h1 style="text-align: center;">Time Table</h1>
+    <h1  class="headingh1" style="text-align: center;">Time Table <span class="userontop"></span></h1>
     <div class="mainouter">
         <div class="main">
             <table>
@@ -93,6 +93,13 @@
             </table>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const username = sessionStorage.getItem('username');
+            const userontop = document.getElementsByClassName('userontop')[0];
+            userontop.innerText = username;
+        });
+    </script>
 </body>
 
 </html>

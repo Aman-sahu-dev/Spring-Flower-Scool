@@ -20,7 +20,7 @@
             <a href="index.html">Logout</a>
         </div>
     </div>
-    <h1 id="dailyheading" style="text-align: center;">Daily Activities</h1>
+    <h1 class="headingh1" style="text-align: center;">Daily Activities <span class="userontop"></span></h1>
     <div class="welcome">
         <div id="extra">
 
@@ -33,7 +33,9 @@
         document.addEventListener('DOMContentLoaded', function () {
             const extradiv = document.getElementById('extra');
             const storedExtraActivities = sessionStorage.getItem('extraactivities');
-
+            const username = sessionStorage.getItem('username');
+            const userontop = document.getElementsByClassName('userontop')[0];
+            userontop.innerText = username;
             if (storedExtraActivities) {
                 const extraactivities = JSON.parse(storedExtraActivities);
                 extraactivities.forEach(element => {

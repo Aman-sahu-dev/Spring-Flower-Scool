@@ -20,7 +20,7 @@
             <a href="index.html">Logout</a>
         </div>
     </div>
-    <h1 style="text-align: center;">Student Details</h1>
+    <h1 class="headingh1" style="text-align: center;">Student Details <span class="userontop"></span></h1>
     <div class="mainouter">
         <div class="main">
             <img id="image" src="student.png" alt="student image" width="200px" height="200">
@@ -39,6 +39,8 @@
             const useremail = sessionStorage.getItem('useremail');
             const stuname = document.getElementById('stuname');
             const stuemail = document.getElementById('stuemail');
+            const userontop = document.getElementsByClassName('userontop')[0];
+            userontop.innerText = username;
             stuname.innerText = `Name: ${username}`;
             stuemail.innerText = `Email: ${useremail}`;
         });

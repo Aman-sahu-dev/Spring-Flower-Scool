@@ -18,7 +18,7 @@
             <a href="index.html">Logout</a>
         </div>
     </div>
-    <h1 style="text-align: center;">MONTHLY ACTIVITIES</h1>
+    <h1 class="headingh1" style="text-align: center;">MONTHLY ACTIVITIES <span class="userontop"></span></h1>
     <div class="monthlybox">
         <div class="monthlyform">
             <h1 class="heading">Add Activity</h1>
@@ -37,6 +37,9 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             monthlycall();
+            const username = sessionStorage.getItem('username');
+            const userontop = document.getElementsByClassName('userontop')[0];
+            userontop.innerText = username;
         });
     </script>
 </body>
