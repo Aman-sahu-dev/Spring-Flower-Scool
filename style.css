@@ -338,14 +338,22 @@ button:hover , input:hover{
     button{
         top: -10px;
     }
-    .heading{
+    .headingh1{
+        font-size: 1.5rem;
+    }
+    .headingh1 i{
+        position: absolute;
+        right: 25px;
+        top: 70px;
+        border-radius : 50% ;
+        padding: 3px;
+        border: 1px solid black;
         font-size: 1rem;
     }
-    .menu h1{
-        font-size: 1.2rem;
-        position: relative;
-        left: -55px;
+    .userontop{
+        font-size: 1rem;
     }
+    
     /* Task page */
     .monthlyform{
         width: 100%;
